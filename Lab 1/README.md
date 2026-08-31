@@ -3,6 +3,8 @@
 _This project is to be done in teams of 2._
 
 **NAME OF BOTH COLLABORATOR(S) HERE**
+**Elliott Kalt**
+**Alexa Yang**
 
 **THE MASTERWORK YOU DREW FROM THE HAT:**
 
@@ -92,6 +94,8 @@ the interaction*:
 **Describe your masterwork here, in your own words. What is the core interaction
 someone would recognize it by?**
 
+**The inputs available to the arc reactor are essentially taking it in, pulling it out, and perhaps turning it on and off. It is famous for keeping Tony Stark/Iron Man alive by ensuring shrapnel does not enter his heart. It also is responsible for powering the Iron Man suit, so it carries much strength in these abilities. However, the original arc reactor, built in the cave, began to poison Stark's blood, resulting in a necessity to replace it with updated materials. The piece colors the relationship between Stark and his superhero persona Iron Man by indicating how Iron Man both saved, and simultaneously has become a toxic presence in, Stark's life. It also colors the relationship between Stark and his assistant Pepper Potts, as she is the one who helps him replace the old deficient one, with a new one, representing how much Stark needs her in his life.**
+
 ## Part A. Plan
 
 For your masterwork, reconstruct the interaction as a scene:
@@ -104,6 +108,9 @@ For your masterwork, reconstruct the interaction as a scene:
 - **Goals:** What is each player trying to do?
 
 **Describe your setting, players, activity, and goals here.**
+**We recreated the scene in which Pepper Potts replaces Stark's arc reactor. This scene takes place in Stark's engineering lab. Potts enters the lab at the request of Stark, where Stark is waiting in a chair. It is a dangerous interaction; as Potts attempts to replace Stark's arc reactor, she accidentally pulls out a copper magnet that temporarily sends Stark into cardiac arrest. Ultimately, Potts is attempting to replace the arc reactor without killing Stark.
+
+Our interpretation: The light is representative of Tony's health state. Originally, the light (phone) is set to dim and flickering, which indicates that Tony's health is low. As Pepper begins to pull the reactor (phone), she yanks it, accidentally pulling a cable out in the process. The light turns red, then turns off to indicate the severity of the situation. Peppers inserts a new reactor (secondary phone) into Stark. This light flickers, then turns on as it settles into Tony's body,**
 
 Now **sketch a 3 storyboards** of the interaction you are recreating. (The number may depend on the thing you drew, but stretch your thinking!) They
 don't need to be beautiful, but they must capture and communicate not only the behavior of the light, but how it affects
@@ -111,6 +118,9 @@ and the people around it. If you're new to storyboarding, read
 [this explanation](https://www.nngroup.com/articles/storyboards-visualize-ideas/).
 
 **Include pictures of your storyboards here.**
+
+<img width="1536" height="2040" alt="storyboard" src="https://github.com/user-attachments/assets/1cf7fa88-e319-468d-88b1-f9f52cb06964" />
+
 
 Use the storyboards to decide what interaction to prototype.
 
@@ -122,7 +132,8 @@ Physically act out the interaction you planned. For now, just pretend the light
 is doing what you've scripted — a person can wave a flashlight, or you can narrate
 it aloud.
 
-**Are there things that seemed better on paper than when acted out?**
+**Are there things that seemed better on paper than when acted out?** 
+- Originally we were going to do a more close interpretation of the original scene, but wanted it to be more obvious that the light represented Tony's life state. So we added the flickering, and the yanking of the cable to be a more dramatic retelling of the interaction
 
 **Did new ideas about the piece surface once you were on your feet?**
 
@@ -153,6 +164,7 @@ building any real electronics. (Zoom works well for recording; you can pin the
 video feed of whichever scene you want to capture.)
 
 **Include your first attempts at recording the wizarded set-up here.**
+https://drive.google.com/file/d/1YVTr7Iuz2hOweY5u5pSjv9PcBjEJ5Ruz/view
 
 ## Part E. (optional) Costume the Device
 
@@ -175,10 +187,13 @@ the top of this lab: a viewer who knows the piece should recognize it; a viewer
 who doesn't should come away understanding what it's famous for. How might you illustrate the non-sequential aspects of the interaction in the sketch?
 
 **Include your video here.**
+https://drive.google.com/file/d/1DpJ7oor_v04UJpV2iZzEB1wUOUqFWMeS/view
 
 **Please indicate who you collaborated with on this lab.** Be generous in
 acknowledging their contributions, and credit any other influences (YouTube,
 Github, Twitter, a friend who lent you a lamp) that informed your recreation.
+
+Actress: Emilie Kalt
 
 ---
 
