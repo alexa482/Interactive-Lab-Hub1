@@ -111,9 +111,10 @@ For your masterwork, reconstruct the interaction as a scene:
 - **Goals:** What is each player trying to do?
 
 **Describe your setting, players, activity, and goals here.**
-**We recreated the scene in which Pepper Potts replaces Stark's arc reactor. This scene takes place in Stark's engineering lab. Potts enters the lab at the request of Stark, where Stark is waiting in a chair. It is a dangerous interaction; as Potts attempts to replace Stark's arc reactor, she accidentally pulls out a copper magnet that temporarily sends Stark into cardiac arrest. Ultimately, Potts is attempting to replace the arc reactor without killing Stark.
 
-Our interpretation: The light is representative of Tony's health state. Originally, the light (phone) is set to dim and flickering, which indicates that Tony's health is low. As Pepper begins to pull the reactor (phone), she yanks it, accidentally pulling a cable out in the process. The light turns red, then turns off to indicate the severity of the situation. Peppers inserts a new reactor (secondary phone) into Stark. This light flickers, then turns on as it settles into Tony's body,**
+**We recreated the scene in which Pepper Potts replaces Stark's arc reactor. This scene takes place in Stark's engineering lab. Potts enters the lab at the request of Stark, where Stark is waiting in a chair. It is a dangerous interaction; as Potts attempts to replace Stark's arc reactor, she accidentally pulls out a copper magnet that temporarily sends Stark into cardiac arrest. Ultimately, Potts is attempting to replace the arc reactor without killing Stark.**
+
+**Our interpretation: The light is representative of Tony's health state. Originally, the light (phone) is set to dim and flickering, which indicates that Tony's health is low. As Pepper begins to pull the reactor (phone), she yanks it, accidentally pulling a cable out in the process. The light turns red, then turns off to indicate the severity of the situation. Peppers inserts a new reactor (secondary phone) into Stark. This light flickers, then turns on as it settles into Tony's body.**
 
 Now **sketch a 3 storyboards** of the interaction you are recreating. (The number may depend on the thing you drew, but stretch your thinking!) They
 don't need to be beautiful, but they must capture and communicate not only the behavior of the light, but how it affects
