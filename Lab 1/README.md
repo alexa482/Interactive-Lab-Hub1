@@ -97,7 +97,7 @@ the interaction*:
 **Describe your masterwork here, in your own words. What is the core interaction
 someone would recognize it by?**
 
-**The inputs available to the arc reactor are essentially taking it in, pulling it out, and perhaps turning it on and off. It is famous for keeping Tony Stark/Iron Man alive by ensuring shrapnel does not enter his heart. It also is responsible for powering the Iron Man suit, so it carries much strength in these abilities. However, the original arc reactor, built in the cave, began to poison Stark's blood, resulting in a necessity to replace it with updated materials. The piece colors the relationship between Stark and his superhero persona Iron Man by indicating how Iron Man both saved, and simultaneously has become a toxic presence in, Stark's life. It also colors the relationship between Stark and his assistant Pepper Potts, as she is the one who helps him replace the old deficient one, with a new one, representing how much Stark needs her in his life.**
+**The inputs available to the arc reactor are essentially taking it in, pulling it out, and perhaps turning it on and off. It is famous for keeping Tony Stark/Iron Man alive by ensuring shrapnel does not enter his heart. It also is responsible for powering the Iron Man suit, so it carries much strength in these abilities. However, the original arc reactor, built in the cave, began to poison Stark's blood, resulting in a necessity to replace it with updated materials. The piece colors the relationship between Stark and his superhero persona Iron Man by indicating how Iron Man both saved, and simultaneously has become a toxic presence in, Stark's life. It also colors the relationship between Stark and his assistant Pepper Potts, as she is the one who helps him replace the old deficient one, with a new one, representing how much Stark needs her in his life. I think the strengths and weaknesses are that for Tony, it is hard to tell the state of his health just by looking at it. He usually has to ask his AI assistant Jarvis to run diagonistics or examine the physical state of the blood surrounding the arc reactor. If the arc reactor itself could indicate his health state, that might be more optimal for him. **
 
 ## Part A. Plan
 
@@ -140,9 +140,11 @@ it aloud.
 - Originally we were going to do a more close interpretation of the original scene, but wanted it to be more obvious that the light represented Tony's life state. So we added the flickering, and the yanking of the cable to be a more dramatic retelling of the interaction
 
 **Did new ideas about the piece surface once you were on your feet?**
+- We wanted some extra way to indicate that Tony's health was in danger as the transition between the arc reactors was happening. In the original scene, this is indicated by the heart rate monitor and the screen behind him, but we wanted to find a way to integrate that screen into the light device. So the light device itself could change to reflect his health state, and there obviously needed to be something interactive to trigger those light changes. 
 
 **Are there key moments in the interaction where things could go in a different direction?**
 Iterate your storyboards to capture key non-sequential aspects of the interaction. 
+See below for revised storyboard.
 
 ## Part C. Prototype the Light (light first!)
 
@@ -220,7 +222,6 @@ Viktor Radev - https://github.com/LaboriouslyExquisite/Interactive-Lab-Hub/blob/
 Wasn’t fully grasping what the scene was intended to be, although the changing of the lights helped with facilitating the comprehension. Liked the power changing to represent the power fluctuations. Main improvements were to make it more obvious it was Tony Stark who was connected to the phone, and keep the phone in frame. 
 
 Alison Liu - https://github.com/Cyalisonliu/Interactive-Lab-Hub/tree/Fall2026/Lab%201#part-f-record
-
 
 I love the moment when the person puts the device back onto the doll’s heart and the device immediately lights up, which somehow helps me catch the masterpiece. But I think have the light respond to a human (instead the doll) would be a more enticing reaction to notice. Overall, adding more human interaction could be beneficial. Great work 
 
