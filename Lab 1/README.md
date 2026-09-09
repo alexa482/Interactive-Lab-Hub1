@@ -227,7 +227,7 @@ I love the moment when the person puts the device back onto the doll’s heart a
 
 Jovian Wang - https://github.com/jovianw/Interactive-Lab-Hub/tree/Fall2026/Lab%201
 
-Make sure you answer the questions in Part B! Also, good adjustment after acting it out, the flickering light and changing colors is a creative idea. I like the idea. Some minor adjustments I would consider: for the video, make sure the light turning off is in frame. Also, consider using audio to enhance the interaction. Good stuff!
+Good adjustment after acting it out, the flickering light and changing colors is a creative idea. I like the idea. Some minor adjustments I would consider: for the video, make sure the light turning off is in frame. Also, consider using audio to enhance the interaction. Good stuff!
 
 
 ## Remix, Update, or Critique the Master
