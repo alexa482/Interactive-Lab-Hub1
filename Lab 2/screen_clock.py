@@ -61,11 +61,17 @@ backlight.switch_to_output()
 backlight.value = True
 
 while True:
-    # Draw a black filled box to clear the image.
-    draw.rectangle((0, 0, width, height), outline=0, fill=400)
-
-    #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
-
-    # Display image.
-    disp.image(image, rotation)
+    current_hour = int(time.strftime("%H"))
+    if 6 <= current_hour < 12:
+        shiba_image = "shibamorning.png"
+    elif 12 <= current_hour < 17:
+        shiba_image = "shibaafternoong.png"
+    elif 17 <= current_hour < 21:
+        shiba_image = "shibaevening.png"
+    else:
+        shiba_image = "shibanight.png"
+    shiba = Image.open(shiba_image)
+    shiba = shiba.resize((width, height))
+    shiba = shiba.convert("RGB")
+    disp.image(shiba, rotation)
     time.sleep(1)
