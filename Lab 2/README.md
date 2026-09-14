@@ -1,6 +1,8 @@
 # Interactive Prototyping: The Clock of Pi
 **NAMES OF COLLABORATORS HERE**
 
+Alexa Yang
+
 Does it feel like time is moving strangely during this semester?
 
 For our first Pi project, we will pay homage to the [timekeeping devices of old](https://en.wikipedia.org/wiki/History_of_timekeeping_devices) by making simple clocks.
@@ -9,6 +11,8 @@ It is worth spending a little time thinking about how you mark time, and what wo
 
 **Please indicate anyone you collaborated with on this Lab here.**
 Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
+
+Consultants: Elliott Kalt and Jovian Wang
 
 ## Prep
 
@@ -157,6 +161,8 @@ You can look in `screen_boot_script.py` for how to display text on the screen!
 You can look in `image.py` for an example of how to display an image on the screen. Can you make it switch to another image when you push one of the buttons?
 
 \*\*\***Include a picture of your own Raspberry Pi displaying the piscreen.service with your unique MAC address. Additionally, please provide another picture showing the successful completion of the screen test.**\*\*\*
+<img width="3024" height="4032" alt="IMG_3628" src="https://github.com/user-attachments/assets/ff58de5f-a6ba-4c43-811e-a0c4c2510f12" />
+<img width="3024" height="4032" alt="IMG_3627" src="https://github.com/user-attachments/assets/7791c5de-4ccc-4d72-b324-e9b9ea6af9eb" />
 
 
 ## Part D. 
@@ -193,10 +199,15 @@ We strongly discourage literal digital or analog clock display: Be creative.
 
 
 ** Insert ideas, sketches, [Verplank diagrams](https://ccrma.stanford.edu/courses/250a-fall-2004/IDSketchbok.pdf)), storyboards for your ideas **
+<img width="1200" height="1600" alt="PHOTO-2026-09-13-23-04-56" src="https://github.com/user-attachments/assets/7e7f152e-a204-4778-96db-316e55445f1d" />
+<img width="1280" height="932" alt="PHOTO-2026-09-13-23-03-00" src="https://github.com/user-attachments/assets/5df7baa4-e5f0-40f7-bcbb-a4c8e2405b48" />
+
 
 
 
 **Put the names of the people you gave feedback to here. (Even better, add links to their repos here!)**
+
+Jovian Wang, Elliott Kalt
 
 # Lab 2 Part 2
 
