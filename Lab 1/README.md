@@ -257,7 +257,7 @@ prototype are great too.**
 
 Thoughts following the storyboard: the outdoor lighting portion was nixed because logistically it would be hard to film. Also decided to keep the phone on the Tony stand-in the whole time to better communicate Tony’s health status (that is, never remove the phone like in the first video). 
 
-Final video: https://drive.google.com/drive/home?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto
+Final video: https://drive.google.com/file/d/1-pRYbqXBVmL2KoD2vzlfREgQHd8hO0Q1/view?usp=sharing
 
 
 ---
