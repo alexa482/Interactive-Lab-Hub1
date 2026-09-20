@@ -1,5 +1,6 @@
 import time
 import subprocess
+from pathlib import Path
 import digitalio
 import board
 from PIL import Image, ImageDraw, ImageFont
@@ -60,18 +61,26 @@ backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
 
+
+def animation(filename, number_of_frames, time_between_frames):
+    for frame_number in range(1, number_of_frames + 1):
+        frame_path = Path(__file__).parent / "animation" / f"{filename}{frame_number}.png"
+        with Image.open(frame_path) as source:
+            frame = source.convert("RGB").resize((width, height))
+        disp.image(frame, rotation)
+        time.sleep(time_between_frames)
+
+
 while True:
     current_hour = int(time.strftime("%H"))
     if 6 <= current_hour < 12:
-        shiba_image = "shibamorning.png"
+        animation("m", 4, 0.25)
     elif 12 <= current_hour < 17:
-        shiba_image = "shibaafternoong.png"
+        animation("a", 2, 0.5)
     elif 17 <= current_hour < 21:
-        shiba_image = "shibaevening.png"
+        animation("e", 4, 0.25)
     else:
-        shiba_image = "shibanight.png"
-    shiba = Image.open(shiba_image)
-    shiba = shiba.resize((width, height))
-    shiba = shiba.convert("RGB")
-    disp.image(shiba, rotation)
-    time.sleep(1)
+        animation("n", 2, 0.5)
+
+        
+
