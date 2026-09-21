@@ -1,7 +1,8 @@
 # Interactive Prototyping: The Clock of Pi
+
 **NAMES OF COLLABORATORS HERE**
 
-Alexa Yang
+Alexa Yang, Demi Hu
 
 Does it feel like time is moving strangely during this semester?
 
@@ -10,42 +11,39 @@ For our first Pi project, we will pay homage to the [timekeeping devices of old]
 It is worth spending a little time thinking about how you mark time, and what would be useful in a clock of your own design.
 
 **Please indicate anyone you collaborated with on this Lab here.**
-Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
+Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design.
 
-Consultants: Elliott Kalt and Jovian Wang
+Consultants: Nathan Duggal
 
 ## Prep
 
 1. ### Set up your Lab 2 Github
 
-At the start of lab Wednesday, ensure you have the latest lab content by updating your forked repository. 
+At the start of lab Wednesday, ensure you have the latest lab content by updating your forked repository.
 
 **📖 [Follow the step-by-step guide for safely updating your fork](pull_updates/README.md)**
 
 This guide covers how to pull updates without overwriting your completed work, handle merge conflicts, and recover if something goes wrong.
 
-
 2. ### Get Kit and Inventory Parts
-Take inventory of the kit parts that you have, and note anything that is missing:
+   Take inventory of the kit parts that you have, and note anything that is missing:
 
-***Update your [parts list inventory](partslist.md)***
+**_Update your [parts list inventory](partslist.md)_**
 
 3. ### Prepare your Pi for lab this week
-[Follow these instructions](prep.md) to download and burn the image for your Raspberry Pi before lab Wednesday.
-
-
-
+   [Follow these instructions](prep.md) to download and burn the image for your Raspberry Pi before lab Wednesday.
 
 ## Overview
-For this assignment, you are going to 
 
-A) [Connect to your Pi](#part-a)  
+For this assignment, you are going to
 
-B) [Try out cli_clock.py](#part-b) 
+A) [Connect to your Pi](#part-a)
+
+B) [Try out cli_clock.py](#part-b)
 
 C) [Set up your RGB display](#part-c)
 
-D) [Try out clock_display_demo](#part-d) 
+D) [Try out clock_display_demo](#part-d)
 
 E) [Modify the code to make the display your own](#part-e)
 
@@ -54,12 +52,15 @@ F) [Make a short video of your modified barebones PiClock](#part-f)
 G) [Sketch and brainstorm further interactions and features you would like for your clock for Part 2.](#part-g)
 
 ## The Report
+
 This readme.md page in your own repository should be edited to include the work you have done. You can delete everything but the headers and the sections between the \*\*\***stars**\*\*\*. Write the answers to the questions under the starred sentences. Include any material that explains what you did in this lab hub folder, and link it in the readme.
 
 Labs are due on Sunday midnight. Make sure this page is linked to on your main class hub page.
 
-## Part A. 
+## Part A.
+
 ### Connect to your Pi
+
 Just like you did in the lab prep, ssh on to your pi. Once you get there, create a Python environment (named venv) by typing the following commands.
 
 ```
@@ -67,11 +68,14 @@ ssh pi@<your Pi's IP address>
 ...
 pi@raspberrypi:~ $ python -m venv venv
 pi@raspberrypi:~ $ source venv/bin/activate
-(venv) pi@raspberrypi:~ $ 
+(venv) pi@raspberrypi:~ $
 
 ```
+
 ### Setup Personal Access Tokens on GitHub
+
 Set your git name and email so that commits appear under your name.
+
 ```
 git config --global user.name "Your Name"
 git config --global user.email "yourNetID@cornell.edu"
@@ -81,18 +85,21 @@ The support for password authentication of GitHub was removed on August 13, 2021
 
 Following the steps listed [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) from GitHub to set up a token. Depends on your preference, you can set up and select the scopes, or permissions, you would like to grant the token. This token will act as your GitHub password later when you use the terminal on your Pi to sync files with your lab-hub repo.
 
+## Part B.
 
-## Part B. 
 ### Try out the Command Line Clock
+
 Clone your own lab-hub repo for this assignment to your Pi and change the directory to Lab 2 folder (remember to replace the following command line with your own GitHub ID):
 
 ```
 (venv) pi@raspberrypi:~$ git clone https://github.com/<YOURGITID>/Interactive-Lab-Hub.git
 (venv) pi@raspberrypi:~$ cd Interactive-Lab-Hub/Lab\ 2/
 ```
+
 Depends on the setting, you might be asked to provide your GitHub user name and password. Remember to use the "Personal Access Tokens" you just set up as the password instead of your account one!
 
 Check if the directory has clone sucessfully, you should see the Interactive-Lab-Hub under the home directory listed:
+
 ```
 (venv) pi@raspberrypi:~ $ ls
 Bookshelf      Documents            Music     Public                 venv
@@ -101,21 +108,21 @@ Desktop        Interactive-Lab-Hub  Pictures  Templates
 (venv) pi@raspberrypi:~ $
 ```
 
-
 Install the packages from the requirements.txt and run the example script `cli_clock.py`:
 
 ```
 (venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ pip install -r requirements.txt
-(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ python cli_clock.py 
+(venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ python cli_clock.py
 02/24/2021 11:20:49
 ```
 
 The terminal should show the time, you can press `ctrl-c` to exit the script.
 If you are unfamiliar with the Python code in `cli_clock.py`, have a look at [this Python refresher](https://hackernoon.com/intermediate-python-refresher-tutorial-project-ideas-and-tips-i28s320p). If you are still concerned, please reach out to the teaching staff!
 
+## Part C.
 
-## Part C. 
 ### Set up your RGB Display
+
 We have asked you to equip the [Adafruit MiniPiTFT](https://www.adafruit.com/product/4393) on your Pi in the Lab 2 prep already. Here, we will introduce you to the MiniPiTFT and Python scripts on the Pi with more details.
 
 <img src="https://cdn-learn.adafruit.com/assets/assets/000/082/842/large1024/adafruit_products_4393_iso_ORIG_2019_10.jpg" height="200" />
@@ -141,19 +148,22 @@ Line up the screen and press it on the headers. The hole in the screen should ma
 
 The display uses a communication protocol called [SPI](https://www.circuitbasics.com/basics-of-the-spi-communication-protocol/) to speak with the raspberry pi. We won't go in depth in this course over how SPI works. The port on the bottom of the display connects to the SDA and SCL pins used for the I2C communication protocol which we will cover later. GPIO (General Purpose Input/Output) pins 23 and 24 are connected to the two buttons on the left. GPIO 22 controls the display backlight.
 
-To show you the IP and Mac address of the Pi to allow connecting remotely we created a service that launches a python script that runs on boot. For the following steps stop the service by typing ``` sudo systemctl stop piscreen.service --now```. Othwerise two scripts will try to use the screen at once. You may start it again by typing ``` sudo systemctl start piscreen.service --now```
+To show you the IP and Mac address of the Pi to allow connecting remotely we created a service that launches a python script that runs on boot. For the following steps stop the service by typing ` sudo systemctl stop piscreen.service --now`. Othwerise two scripts will try to use the screen at once. You may start it again by typing ` sudo systemctl start piscreen.service --now`
 
-We can test it by typing 
+We can test it by typing
+
 ```
 (venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ python screen_test.py
 ```
 
 You can type the name of a color then press either of the buttons on the MiniPiTFT to see what happens on the display! You can press `ctrl-c` to exit the script. Take a look at the code with
+
 ```
 (venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ cat screen_test.py
 ```
 
 #### Displaying Info with Texts
+
 You can look in `screen_boot_script.py` for how to display text on the screen!
 
 #### Displaying an image
@@ -164,30 +174,34 @@ You can look in `image.py` for an example of how to display an image on the scre
 <img width="3024" height="4032" alt="IMG_3628" src="https://github.com/user-attachments/assets/ff58de5f-a6ba-4c43-811e-a0c4c2510f12" />
 <img width="3024" height="4032" alt="IMG_3627" src="https://github.com/user-attachments/assets/7791c5de-4ccc-4d72-b324-e9b9ea6af9eb" />
 
+## Part D.
 
-## Part D. 
 ### Set up the Display Clock Demo
+
 Work on `screen_clock.py`, try to show the time by filling in the while loop (at the bottom of the script where we noted "TODO" for you). You can use the code in `cli_clock.py` and `stats.py` to figure this out.
 
 ### How to Edit Scripts on Pi
+
 Option 1. One of the ways for you to edit scripts on Pi through terminal is using [`nano`](https://linuxize.com/post/how-to-use-nano-text-editor/) command. You can go into the `screen_clock.py` by typing the follow command line:
+
 ```
 (venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 2 $ nano screen_clock.py
 ```
+
 You can make changes to the script this way, remember to save the changes by pressing `ctrl-o` and press enter again. You can press `ctrl-x` to exit the nano mode. There are more options listed down in the terminal you can use in nano.
 
 Option 2. Another way for you to edit scripts is to use VNC on your laptop to remotely connect your Pi. Try to open the files directly like what you will do with your laptop and edit them. Since the default OS we have for you does not come up a python programmer, you will have to install one yourself otherwise you will have to edit the codes with text editor. [Thonny IDE](https://thonny.org/) is a good option for you to install, try run the following command lines in your Pi's ternimal:
 
-  ```
-  pi@raspberrypi:~ $ sudo apt install thonny
-  pi@raspberrypi:~ $ sudo apt update && sudo apt upgrade -y
-  ```
+```
+pi@raspberrypi:~ $ sudo apt install thonny
+pi@raspberrypi:~ $ sudo apt update && sudo apt upgrade -y
+```
 
 Now you should be able to edit python scripts with Thonny on your Pi.
 
-Option 3. A nowadays often preferred method is to use Microsoft [VS code to remote connect to the Pi](https://www.raspberrypi.com/news/coding-on-raspberry-pi-remotely-with-visual-studio-code/). This gives you access to a fullly equipped and responsive code editor with terminal and file browser.  
+Option 3. A nowadays often preferred method is to use Microsoft [VS code to remote connect to the Pi](https://www.raspberrypi.com/news/coding-on-raspberry-pi-remotely-with-visual-studio-code/). This gives you access to a fullly equipped and responsive code editor with terminal and file browser.
 
-Pro Tip: Using tools like [code-server](https://coder.com/docs/code-server/latest) you can even setup a VS Code coding environment hosted on your raspberry pi and code through a web browser on your tablet or smartphone! 
+Pro Tip: Using tools like [code-server](https://coder.com/docs/code-server/latest) you can even setup a VS Code coding environment hosted on your raspberry pi and code through a web browser on your tablet or smartphone!
 
 ## Part E. Read Part 2. Sketch and brainstorm further interactions and features you would like for your clock.
 
@@ -197,26 +211,24 @@ Another might be novel units of time. How do you measure a year? [In daylights? 
 
 We strongly discourage literal digital or analog clock display: Be creative.
 
-
 ** Insert ideas, sketches, [Verplank diagrams](https://ccrma.stanford.edu/courses/250a-fall-2004/IDSketchbok.pdf)), storyboards for your ideas **
 <img width="1200" height="1600" alt="PHOTO-2026-09-13-23-04-56" src="https://github.com/user-attachments/assets/7e7f152e-a204-4778-96db-316e55445f1d" />
 <img width="1280" height="932" alt="PHOTO-2026-09-13-23-03-00" src="https://github.com/user-attachments/assets/5df7baa4-e5f0-40f7-bcbb-a4c8e2405b48" />
 
-
-
-
 **Put the names of the people you gave feedback to here. (Even better, add links to their repos here!)**
 
-Jovian Wang, Elliott Kalt
+Jovian Wang, Elliott Kalt, Aurora Shen
 
 # Lab 2 Part 2
 
-## Prep 
+## Prep
 
 1. Pick up remaining parts for kit on Wednesday lab class. Check the updated [parts list inventory](partslist.md) and let the TA know if there is any part missing.
 
 2. Look at and give feedback on the Part E. for at least 3 other people in the class and get 3 people to comment on your Part E!)
-**Put the feedback for your ideas here.**
+   **Put the feedback for your ideas here.**
+
+would it be possible to differentiate more within the 4 sections? Also can u make it so that i can feed him by pressing abutton. Could animate him by drawing two of each version of him and switching between frames.
 
 ## Update your Lab Hub
 
@@ -231,6 +243,8 @@ Start small, pick just one element of your overall idea, just to show you have a
 ## Make a short video of your modified barebones PiClock
 
 \*\*\***Take a video of your barely modified PiClock.**\*\*\*
+
+https://drive.google.com/file/d/1LQSSI3kW85W265_ADIAh-79JJhzxT1fd/view?usp=sharing
 
 After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
 
@@ -248,14 +262,15 @@ Do take advantage of having done the previous iteration to refine and simplify y
 
 ** Insert any updates ideas, sketches, [Verplank diagrams](https://ccrma.stanford.edu/courses/250a-fall-2004/IDSketchbok.pdf))!, storyboards for your ideas **
 
+Demi and I decided to expand each time period animation by adding more frames, and we wanted to make the dogs darker in color as the day went on. So the morning dog has the lightest fur, while the night dog has the darkest fur.
 
 \*\*\***Put a copy of your code in your Lab 2 Github repo.**\*\*\*
 
 \*\*\***Take a video of your PiClock.**\*\*\*
-
+https://drive.google.com/file/d/1xKf9fPfVOf7wll5iS7bEdfwV3ruT8p8J/view?usp=sharing
 
 As always, make sure you document contributions and ideas from others (and AI) explicitly in your writeup.
 
-You are permitted (but not required) to work in groups and share a turn in; you are expected to make equal contribution on any group work you do, and N people's group project should look like N times the work of a single person's lab.  Make sure the page for the group turn in is linked to your personal Interactive Lab Hub page. 
+Some contributions from Claude in the clock code.
 
-
+You are permitted (but not required) to work in groups and share a turn in; you are expected to make equal contribution on any group work you do, and N people's group project should look like N times the work of a single person's lab. Make sure the page for the group turn in is linked to your personal Interactive Lab Hub page.
