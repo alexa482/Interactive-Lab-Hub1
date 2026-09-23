@@ -70,17 +70,22 @@ def animation(filename, number_of_frames, time_between_frames):
         disp.image(frame, rotation)
         time.sleep(time_between_frames)
 
-
+i = 0
+animations = [("m", 4), ("a", 2) , ("e", 4), ("n", 2)]
 while True:
-    current_hour = int(time.strftime("%H"))
-    if 6 <= current_hour < 12:
-        animation("m", 4, 0.25)
-    elif 12 <= current_hour < 17:
-        animation("a", 2, 0.5)
-    elif 17 <= current_hour < 21:
-        animation("e", 4, 0.25)
-    else:
-        animation("n", 2, 0.5)
+    # current_hour = int(time.strftime("%H"))
+    # if 6 <= current_hour < 12:
+    #     animation("m", 4, 0.25)
+    # elif 12 <= current_hour < 17:
+    #     animation("a", 2, 0.5)
+    # elif 17 <= current_hour < 21:
+    #     animation("e", 4, 0.25)
+    # else:
+    #     animation("n", 2, 0.5)
+    file, frames = animations[i]
+    animation(file, frames, 1 / frames)
+    i = (i + 1) % 4
+    time.sleep(0.5)
 
         
 
