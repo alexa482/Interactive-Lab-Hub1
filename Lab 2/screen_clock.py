@@ -61,6 +61,10 @@ backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
 
+button = digitalio.DigitalInOut(board.D23)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
+
 
 def animation(filename, number_of_frames, time_between_frames):
     for frame_number in range(1, number_of_frames + 1):
@@ -70,22 +74,42 @@ def animation(filename, number_of_frames, time_between_frames):
         disp.image(frame, rotation)
         time.sleep(time_between_frames)
 
-i = 0
-animations = [("m", 4), ("a", 2) , ("e", 4), ("n", 2)]
+
+
+current_hour = int(time.strftime("%H"))
+
+if 6 <= current_hour < 12:
+    current_period = 0    
+elif 12 <= current_hour < 17:
+    current_period = 1     
+elif 17 <= current_hour < 21:
+    current_period = 2      
+else:
+    current_period = 3      
+
+previous_button = True
 while True:
-    # current_hour = int(time.strftime("%H"))
-    # if 6 <= current_hour < 12:
-    #     animation("m", 4, 0.25)
-    # elif 12 <= current_hour < 17:
-    #     animation("a", 2, 0.5)
-    # elif 17 <= current_hour < 21:
-    #     animation("e", 4, 0.25)
-    # else:
-    #     animation("n", 2, 0.5)
-    file, frames = animations[i]
-    animation(file, frames, 1 / frames)
-    i = (i + 1) % 4
-    time.sleep(0.5)
+    current_button = button.value
+    if previous_button and not current_button:
+        current_period = (current_period + 1) % 4
+        time.sleep(0.2) 
+    previous_button = current_button
+    if current_period == 0:
+        shiba_image = "shibamorning.png"
+    elif current_period == 1:
+        shiba_image = "shibaafternoon.png"
+    elif current_period == 2:
+        shiba_image = "shibaevening.png"
+    else:
+        shiba_image = "shibanight.png"
+    shiba = Image.open(shiba_image)
+    shiba = shiba.resize((width, height))
+    shiba = shiba.convert("RGB")
+    disp.image(shiba, rotation)
+
+    time.sleep(0.01)
+   
+
 
         
 
