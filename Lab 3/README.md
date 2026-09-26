@@ -1,10 +1,10 @@
 # Chatterboxes
 
-**NAMES OF COLLABORATORS HERE**
+**Alexa Yang**
 
 [![Watch the video](https://user-images.githubusercontent.com/1128669/135009222-111fe522-e6ba-46ad-b6dc-d1633d21129c.png)](https://youtu.be/LZ0VJClIlRI?si=Yy84mcyVYuVV19mn)
 
-In this lab, we want you to design interaction with a speech-enabled device — something that listens and talks to you. This device can do anything *but* control lights (since we already did that in Lab 1). First, we want you to storyboard what you imagine the conversational interaction to be like. Then you will use wizarding techniques to elicit examples of what people might say, ask, or respond. We then want you to use the examples collected from at least two other people to inform the redesign of the device.
+In this lab, we want you to design interaction with a speech-enabled device — something that listens and talks to you. This device can do anything _but_ control lights (since we already did that in Lab 1). First, we want you to storyboard what you imagine the conversational interaction to be like. Then you will use wizarding techniques to elicit examples of what people might say, ask, or respond. We then want you to use the examples collected from at least two other people to inform the redesign of the device.
 
 We will focus on **audio** as the main modality for interaction to start; these general techniques can be extended to **video**, **haptics** or other interactive mechanisms in the second part of the Lab.
 
@@ -22,7 +22,7 @@ Students who have not already received a web camera will receive their Webcam an
 
 As always, pull updates from the class Interactive-Lab-Hub to both your Pi and your own GitHub repo.
 
-**\[recommended\]** Option 1: On the Pi, `cd` to your `Interactive-Lab-Hub`, pull the updates from upstream (class lab-hub) and push the updates back to your own GitHub repo. You will need the *personal access token* for this.
+**\[recommended\]** Option 1: On the Pi, `cd` to your `Interactive-Lab-Hub`, pull the updates from upstream (class lab-hub) and push the updates back to your own GitHub repo. You will need the _personal access token_ for this.
 
 ```
 pi@ixe00:~$ cd Interactive-Lab-Hub
@@ -88,7 +88,7 @@ Your Pi can speak in several quite different ways, and the differences are audib
 
 You can run these `.sh` files by typing `./filename`, and read one with `cat filename`. You can also play audio files directly with `aplay filename` — try `aplay lookdave.wav`.
 
-These are all decades-old technology and they sound like it. `espeak-ng` is a *formant synthesizer*: it generates speech from an acoustic model of the vocal tract, which is why it sounds robotic but also why the whole thing fits in a couple of megabytes and responds instantly. `festival` is *concatenative*: they stitch together recorded fragments of a real speaker, which sounds more human but breaks audibly at the seams.
+These are all decades-old technology and they sound like it. `espeak-ng` is a _formant synthesizer_: it generates speech from an acoustic model of the vocal tract, which is why it sounds robotic but also why the whole thing fits in a couple of megabytes and responds instantly. `festival` is _concatenative_: they stitch together recorded fragments of a real speaker, which sounds more human but breaks audibly at the seams.
 
 ### Neural TTS with Piper
 
@@ -109,7 +109,11 @@ The demo script also shows `--output-raw`, which streams audio to the speaker as
 \*\***Write your own shell file to use your favorite of these TTS engines to have your Pi greet you by name.**\*\*
 (This shell file should be saved to your own repo for this lab.)
 
+alexagreeting.sh
+
 \*\***Then answer: Is the same greeting, in these different voices, the same greeting? Describe one concrete way the voice changed what the utterance seemed to mean or who seemed to be speaking.**\*\*
+
+Deeper voices almost come off as more "hostile" and serious. Piper's voice seemed the most neutral to positive, which is why I used her for my alexagreeting.sh. The faster Piper spoke, the more energetic and engaged she seemed; however, the slower speech felt more natural.
 
 ## B. Speech to Text
 
@@ -129,9 +133,61 @@ The transcript is not the interesting output here — the timings are. Run it ag
 
 Available sizes, smallest first: `tiny.en`, `base.en`, `small.en`, `medium.en`. The `.en` variants are English-only and faster than their multilingual counterparts at the same size.
 
+BASE:
+model base.en (int8, beam=1)
+audio duration 3.72s
+model load 2.66s
+transcription 2.23s
+real-time factor 0.60x
+
+SMALL:
+model small.en (int8, beam=1)
+audio duration 3.72s
+model load 6.44s
+transcription 5.91s
+real-time factor 1.59x
+
 \*\***Record a few seconds of your own speech (`arecord -d 5 -f cd -c 1 -r 16000 test.wav`) and transcribe it with at least two model sizes. Report the real-time factor for each. At what point does the accuracy improvement stop being worth the delay, for a system that has to answer you?**\*\*
 
+TINY:Hello dear, how are you today?
+
+model tiny.en (int8, beam=1)
+audio duration 5.00s
+model load 0.52s
+transcription 1.00s
+real-time factor 0.20x
+
+BASE: Hello dear, how are you today?
+
+model base.en (int8, beam=1)
+audio duration 5.00s
+model load 0.69s
+transcription 1.91s
+real-time factor 0.38x
+
+SMALL: Hello dear, how are you today?
+
+model small.en (int8, beam=1)
+audio duration 5.00s
+model load 1.21s
+transcription 5.44s
+real-time factor 1.09x
+
+I think the time delay is worth it only if iterating and improving can be recognized by the algorithm easily. There should be a way to shortcut to the problem area, improve, and test in a constrained sort of way without having to rerun the entire program and wait for it to complete only to see that your updates haven't properly fixed the issue. It also is in proportion to the task. I only had a short, simple phrase to transcribe here, but if I had a much longer phrase then it would make sense it takes longer.
+
 \*\***Write your own script that verbally asks for a numerical input (a phone number, zipcode, number of pets) and records the answer the respondent provides.**\*\* Numbers are a good stress test — transcription systems make characteristic errors on digit strings, and you will want to know what they are before you design around them.
+
+sugar_question.sh
+
+Transcribing...
+
+2, 2 and 20.
+
+model tiny.en (int8, beam=1)
+audio duration 5.00s
+model load 0.54s
+transcription 0.89s
+real-time factor 0.18x
 
 ## C. Turn-taking: knowing when someone has stopped talking
 
@@ -152,6 +208,20 @@ Speak, pause, and watch it transcribe. Now change the endpointing threshold — 
 ```
 
 \*\***Try both extremes, and something in between. Describe what each one feels like to talk to. Note specifically: at 0.2s, what kinds of normal speech get cut off? At 1.5s, what does the delay make the system seem like?**\*\*
+
+[0.6s speech, 3.90s to transcribe] Story time.
+[9.3s speech, 1.76s to transcribe] At half past six, on the 21st of June 1922, when Cup Alexander Iliczrostov was escorted through the gates of the Kremlin onto spread square.
+[1.1s speech, 0.78s to transcribe] It was glorious.
+[0.4s speech, 0.78s to transcribe] Cool.
+[2.7s speech, 0.92s to transcribe] Drawing his shoulders back without breaking stride.
+[2.8s speech, 1.05s to transcribe] They count inhale the air like one fresh from a swim.
+[4.5s speech, 1.10s to transcribe] The sky was the very blue that the couple of those sand vessels had been painted for.
+[4.3s speech, 1.19s to transcribe] their pink screens and gold shimmered as if they were the sole purpose of a religion.
+[1.5s speech, 0.90s to transcribe] to cheer its divinity.
+
+[20.9s speech, 2.86s to transcribe] A half past six on the 21st of June 1922, when Count Alexander Iliage Roestov was escorted through the gates of the Kremlin on Tresquare if was glorious and cool. Drawing his shoulders back without breaking stride, the count inhaled the air like one fresh from a swim. The sky was the very blue that the couple of those of St. Basil had been painted for.
+
+I feel as though the shorter transcription time might be better for conversations, which are generally more fast paced and contain a lot more filler words such as "like, um, er" etc. The short recording time would likely cut many of these out. Whereas the longer recording time could be better for presentations, speeches, and orations, where the words are more prepared and there is more content to be captured in every second.
 
 There is no correct value. A system that takes drink orders and a system that listens to someone think out loud want very different thresholds, and the right one depends on what your users are doing with their pauses.
 
@@ -177,10 +247,9 @@ Your script should include the pauses. Where does your device wait, and for how 
 
 ## E. Acting out the dialogue
 
-Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing. Please record this interaction (for example, using Zoom's record feature).
+Find a partner, and _without sharing the script with your partner_ try out the dialogue you've designed, where you (as the device designer) act as the device you are designing. Please record this interaction (for example, using Zoom's record feature).
 
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
-
 
 ---
 
@@ -191,45 +260,51 @@ For Part 2, you will redesign the interaction with the speech-enabled device usi
 ## Prep for Part 2
 
 1. What are concrete things that could use improvement in the design of your device? For example: wording, timing, anticipation of misunderstandings.
-2. What are other modes of interaction *beyond speech* that you might also use to clarify how to interact? In particular: how does someone know when the device is listening, and when it is thinking? You have a screen and an LED.
+2. What are other modes of interaction _beyond speech_ that you might also use to clarify how to interact? In particular: how does someone know when the device is listening, and when it is thinking? You have a screen and an LED.
 3. Make a new storyboard, diagram and/or script based on these reflections.
 4. (optional) Integrate [input devices](inputs.md) in the system
 
 ## Prototype your system
 
 The system should:
-* use the Raspberry Pi
-* use one or more sensors
-* require participants to speak to it
 
-*Document how the system works.*
+- use the Raspberry Pi
+- use one or more sensors
+- require participants to speak to it
 
-*Include videos or screencaptures of both the system and the controller.*
+_Document how the system works._
+
+_Include videos or screencaptures of both the system and the controller._
 
 ## Test the system
 
-Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard *after* the interaction, but we recognize that can be hard.)
+Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
 
 Answer the following:
 
 ### What worked well about the system and what didn't?
-\*\**your answer here*\*\*
+
+\*\*_your answer here_\*\*
 
 ### What worked well about the controller and what didn't?
-\*\**your answer here*\*\*
+
+\*\*_your answer here_\*\*
 
 ### What lessons can you take away from the WoZ interactions for designing a more autonomous version of the system?
-\*\**your answer here*\*\*
+
+\*\*_your answer here_\*\*
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
-\*\**your answer here*\*\*
+
+\*\*_your answer here_\*\*
 
 <details>
   <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
 
-  **Before submitting your README.md:**
-  - This readme.md file has a lot of extra text for guidance.
-  - Remove all instructional text and example prompts from this file.
-  - You may either delete these sections or use the toggle/hide feature in VS Code to collapse them for a cleaner look.
-  - Your final submission should be neat, focused on your own work, and easy to read for grading.
+**Before submitting your README.md:**
+
+- This readme.md file has a lot of extra text for guidance.
+- Remove all instructional text and example prompts from this file.
+- You may either delete these sections or use the toggle/hide feature in VS Code to collapse them for a cleaner look.
+- Your final submission should be neat, focused on your own work, and easy to read for grading.
 </details>
