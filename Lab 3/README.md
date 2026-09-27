@@ -249,7 +249,11 @@ Your script should include the pauses. Where does your device wait, and for how 
 
 Find a partner, and _without sharing the script with your partner_ try out the dialogue you've designed, where you (as the device designer) act as the device you are designing. Please record this interaction (for example, using Zoom's record feature).
 
+Recording: https://drive.google.com/file/d/1lvE-jcHej_ZCVtguHhQdMHiL-gTKWCbv/view?usp=sharing
+
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
+
+I elected not to include the opening dialogue I wrote out in the original planning stage (the, "welcome to the pocket poshificator!" part) to see if the purpose of the device was intuitive. It didn't take long for my user to pick up on it, which signals that the device clearly fulfills its objective. It honestly mostly played out how I imagined it, although I will have to work on the script because there are only so many ways you can make a phrase posh. I also need to figure out if the device ought to vocally mimic the attitude of the user; right now, I'm using kind of a neutral tone for all the responses, but expressing emotion is a part of being posh and should therefore be reflected accordingly.
 
 ---
 
