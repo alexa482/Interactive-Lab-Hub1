@@ -9,8 +9,11 @@ In this lab, we want you to design interaction with a speech-enabled device — 
 We will focus on **audio** as the main modality for interaction to start; these general techniques can be extended to **video**, **haptics** or other interactive mechanisms in the second part of the Lab.
 
 A note on what you are building with. Speech interfaces are usually taught as two boxes — speech-in, speech-out — and that framing hides the part that actually determines whether an interaction works. Between listening and speaking sits the question of **whose turn it is**: when does the device decide you have finished talking, and how long does it make you wait before it answers? This lab gives you direct control over both, and we will ask you to notice what changes when you move them.
+<details>
 
-## Prep for Part 1: Get the Latest Content and Pick up Additional Parts
+  <summary><strong>Prep for Part 1: Get the Latest Content and Pick up Additional Parts</strong></summary>
+
+
 
 Please check instructions in [prep.md](prep.md) and complete the setup.
 
@@ -33,10 +36,12 @@ pi@ixe00:~/Interactive-Lab-Hub $ git push
 ```
 
 Option 2: On your own GitHub repo, create a pull request to get updates from the class Interactive-Lab-Hub. After you have the latest updates online, go to your Pi, `cd` to your `Interactive-Lab-Hub` and use `git pull`.
-
----
+</details>
 
 # Part 1
+<details>
+
+  <summary><strong>Setup</strong></summary>
 
 ## Setup
 
@@ -69,9 +74,13 @@ Then run the setup script, which installs the classic speech synthesizers, downl
 ```
 
 Check your audio devices before going further. `arecord -l` lists capture devices and `aplay -l` lists playback devices; if your webcam microphone or Bluetooth speaker does not appear, fix that first — every script below assumes the system defaults are the ones you want.
+</details>
 
 ## A. Text to Speech
 
+<details>
+
+  <summary><strong>TTS</strong></summary>
 Your Pi can speak in several quite different ways, and the differences are audible in a way that matters for design. In `speech-scripts/` there are shell scripts for each.
 
 ### The classic engines
@@ -105,6 +114,7 @@ Note that the Piper command line changed in version 1.x — voices are now downl
 ```
 
 The demo script also shows `--output-raw`, which streams audio to the speaker as it is generated rather than writing a file first. Listen for the difference in how quickly speech begins. In a conversational system this gap is the thing your user experiences as responsiveness.
+</details>
 
 \*\***Write your own shell file to use your favorite of these TTS engines to have your Pi greet you by name.**\*\*
 (This shell file should be saved to your own repo for this lab.)
@@ -116,6 +126,10 @@ alexagreeting.sh
 Deeper voices almost come off as more "hostile" and serious. Piper's voice seemed the most neutral to positive, which is why I used her for my alexagreeting.sh. The faster Piper spoke, the more energetic and engaged she seemed; however, the slower speech felt more natural.
 
 ## B. Speech to Text
+
+<details>
+
+  <summary><strong>STT</strong></summary>
 
 We use [faster-whisper](https://github.com/SYSTRAN/faster-whisper), a reimplementation of OpenAI's Whisper model that runs several times faster on CPU and does not require PyTorch. All processing happens on the Pi; nothing is sent to a server.
 
@@ -146,6 +160,8 @@ audio duration 3.72s
 model load 6.44s
 transcription 5.91s
 real-time factor 1.59x
+
+</details>
 
 \*\***Record a few seconds of your own speech (`arecord -d 5 -f cd -c 1 -r 16000 test.wav`) and transcribe it with at least two model sizes. Report the real-time factor for each. At what point does the accuracy improvement stop being worth the delay, for a system that has to answer you?**\*\*
 
@@ -191,6 +207,10 @@ real-time factor 0.18x
 
 ## C. Turn-taking: knowing when someone has stopped talking
 
+<details>
+
+  <summary><strong>Turn-taking</strong></summary>
+
 Everything so far has worked on fixed audio files. A real conversational device does not get told when to start and stop recording — it has to decide. This is the problem that makes speech interfaces hard, and it is mostly not a speech recognition problem.
 
 We use a **voice activity detector** (VAD) to segment the microphone stream into utterances. `listen.py` runs Silero VAD continuously and hands each detected utterance to faster-whisper:
@@ -206,6 +226,8 @@ Speak, pause, and watch it transcribe. Now change the endpointing threshold — 
 (.venv) $ python listen.py --min-silence 0.2
 (.venv) $ python listen.py --min-silence 1.5
 ```
+
+</details>
 
 \*\***Try both extremes, and something in between. Describe what each one feels like to talk to. Note specifically: at 0.2s, what kinds of normal speech get cut off? At 1.5s, what does the delay make the system seem like?**\*\*
 
@@ -270,9 +292,19 @@ For Part 2, you will redesign the interaction with the speech-enabled device usi
 ## Prep for Part 2
 
 1. What are concrete things that could use improvement in the design of your device? For example: wording, timing, anticipation of misunderstandings.
+
+I think I really needed to improve the clarity of what the device does exactly. To make it more obvious, the wording needs to be more posh. One person I tested with thought it was an Australian accent, so the accent needs to be more clear as well. 
+
+
 2. What are other modes of interaction _beyond speech_ that you might also use to clarify how to interact? In particular: how does someone know when the device is listening, and when it is thinking? You have a screen and an LED.
+
+Ideally, if I had time, I'd add in a small animation of a British aristocrat listening and responding. This would visually indicate to users when the device was listening, versus when it is processing. 
+
 3. Make a new storyboard, diagram and/or script based on these reflections.
-4. (optional) Integrate [input devices](inputs.md) in the system
+
+  [IMG_3933.pdf](https://github.com/user-attachments/files/33040612/IMG_3933.pdf)
+
+5. (optional) Integrate [input devices](inputs.md) in the system
 
 ## Prototype your system
 
@@ -284,7 +316,11 @@ The system should:
 
 _Document how the system works._
 
+So the system opens up by explaining to the user what options they can pick to interact with the device. If the user chooses to record a new entry, then it allows the user to speak into the device. This speech is then transcribed and saved into a file, which is then processed through an LLM which has been instructed to transform the text into posh, British, aristocratic English. This translation is saved, and spoken back to the user. This is also saved as an entry for future use, so the user can listen to old entries whenever they want. 
+
 _Include videos or screencaptures of both the system and the controller._
+
+https://drive.google.com/file/d/1bp5f7vJZlBsb2gvRsEm31gQj3nLNxwjd/view?usp=sharing
 
 ## Test the system
 
@@ -294,19 +330,21 @@ Answer the following:
 
 ### What worked well about the system and what didn't?
 
-\*\*_your answer here_\*\*
+The manipulation of the entry worked kind of well. The LLM wasn't exactly precise in preserving the contents of the diary entry, but did generally add the posh tone I was looking for. It usually perfectly transcribed the user's utterances, and did well at preserving the entries in chronological order. 
 
 ### What worked well about the controller and what didn't?
 
-\*\*_your answer here_\*\*
+The vocal menu was a nice touch, especially for those visually impaired, but if there was too much interference or background noise the device had trouble picking up on the user's utterances. It's on theme with the rest of the device, and its more interesting than just pushing buttons, but gives way for more technical difficulties in various circumstances. 
 
 ### What lessons can you take away from the WoZ interactions for designing a more autonomous version of the system?
 
-\*\*_your answer here_\*\*
+I think even more feedback about what the system is up to during its processing moments would be nice, so there's not just moments of silence while the user waits for the device to finish up. Also faster talking on the device's behalf.
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
-\*\*_your answer here_\*\*
+Something I noticed was that as people used the device, their own speech inputs became naturally more formal. I think using the device encourages people to consider their own speech more. So this could definitely be useful for those with speech impediments who are in the developmental phase, because it gently shapes speech patterns without overtly forcing the user to talk in a rigid, specific way. This device could be used to track changes in speech patterns over time, and see how environmental feedback is used as an interactive tool that helps shape behavior. 
+
+If expanded, it could also record posture. If the device's goal is to help lead a person a more refined life, starting from the way they talk, it could extend into the way they carry themselves. 
 
 <details>
   <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
