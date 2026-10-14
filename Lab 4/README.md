@@ -284,10 +284,26 @@ Your kit includes these [SparkFun Qwiic OLED screens](https://www.sparkfun.com/p
 As you develop your Feast Automata concept, consider where the sensor and actuator need to be placed, what parts move, how electronics are housed, and how the overall form and aesthetics support the interaction.
 
 **\*\*\*Draw 5 sketches that explore different physical arrangements for your sensing and actuation.\*\*\***
+<img width="2400" height="1640" alt="sketch1_pedestal_spoon" src="https://github.com/user-attachments/assets/ca5aee7f-43a1-47a0-b975-ca52a860ecd3" />
+<img width="2400" height="1640" alt="sketch2_lazy_susan" src="https://github.com/user-attachments/assets/510478f7-a897-459e-8dc0-da3fb6228df8" />
+<img width="2400" height="1640" alt="sketch3_hopper_gate" src="https://github.com/user-attachments/assets/36d6202c-02d1-436a-859c-61de560d5e5c" />
+<img width="2400" height="1640" alt="sketch4_seesaw" src="https://github.com/user-attachments/assets/a657713a-f77b-4f77-ad72-dac3b9d62149" />
+<img width="2400" height="1640" alt="sketch5_drawer_dock" src="https://github.com/user-attachments/assets/b85c034b-c21f-452f-9f9e-345ab0a0cced" />
+
 
 **\*\*\*What questions do these sketches raise? What do you need to physically prototype to answer them?\*\*\***
 
+Does the empty plate alone press the button? Does the cardboard disc on top of the button press it by itself?
+Does the cardboard stack flex enough to absorb the weight and never click the button?
+Does a plate placed off-center still press the button, or does it rock?
+How long should the plate be on the device but not activate the button until the servo starts moving?
+Can the servo lift a spoon with food on it (Sketches 1, 4)? Can it turn a turntable loaded with four bowls (Sketch 2)?
+Is it funnier if it refills immediately, or with a dramatic delay?
+
 **\*\*\*Pick one design to prototype and explain why.\*\*\***
+
+We are going to prototype design 1 because it is mechanically one of the simplest, and the servo is more likely able to move a spoon than it is to move a whole lazy Susan.
+
 
 Build a cardboard or other low-fidelity physical prototype of your design.
 
