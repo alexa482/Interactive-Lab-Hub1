@@ -17,9 +17,11 @@
 ---
 
 ## Lab Overview
-Team: group 21  
-Members: Jovian Wang (jlw457, jovianw), Alexa Yang (ay482, alexa482), Elliot Kalt (esk226, elkalt)  
-Project name: <name>
+Team: Solo
+
+Members: Alexa Yang
+
+Project name: Mind Your Manners!
 
 
 For lab this week, we focus on both sensing and actuation, bringing new modes of input and output into your devices, while also prototyping the physical structure and overall look of the device. You will consider how the physical form supports sensing and actuation, and how these elements come together to shape the interaction and aesthetics of the device.
