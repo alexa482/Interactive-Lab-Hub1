@@ -496,8 +496,18 @@ Document all the prototypes and iterations you have designed and worked on! Agai
 
 The deliverables for this lab are, writings, sketches, photos, and videos that show what your prototype:
 * "Looks like": shows how the device should look, feel, sit, weigh, etc.
+  
+* <img width="3024" height="4032" alt="IMG_4342" src="https://github.com/user-attachments/assets/67e3d4e2-ec54-49ea-97e3-595ac68504a2" />
+
 * "Works like": shows what the device can do.
+
+* https://drive.google.com/file/d/1St5-TlgQ8rzky6Ry7ZNBIRuPWG28qgEo/view?usp=sharing
+
 * "Acts like": shows how a person would interact with the device.
+
+* https://drive.google.com/file/d/1ZDEpkmeQiOcSpeW4tHB2vjy6VRmPQCPH/view?usp=sharing
+
+* 
 
 For submission, the readme.md page for this lab should be edited to include the work you have done:
 * Upload any materials that explain what you did, into your lab 4 repository, and link them in your lab 4 readme.md.
