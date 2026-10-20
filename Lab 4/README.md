@@ -287,6 +287,12 @@ As you develop your Feast Automata concept, consider where the sensor and actuat
 
 **\*\*\*Draw 5 sketches that explore different physical arrangements for your sensing and actuation.\*\*\***
 
+<img width="4032" height="3024" alt="IMG_4356" src="https://github.com/user-attachments/assets/142a1ce8-a0a3-4d34-a381-80db6af147da" />
+<img width="4032" height="3024" alt="IMG_4354" src="https://github.com/user-attachments/assets/8c0af197-c5eb-41a8-b89b-96c8d901e819" />
+<img width="4032" height="3024" alt="IMG_4358" src="https://github.com/user-attachments/assets/8efc0073-21ac-4fc3-8b19-7f8507950831" />
+<img width="4032" height="3024" alt="IMG_4355" src="https://github.com/user-attachments/assets/5367bca5-d872-410b-ab9b-2ae475146d99" />
+<img width="4031" height="1768" alt="IMG_4357" src="https://github.com/user-attachments/assets/f8e6ad13-e484-43db-a043-a7c6afd279a3" />
+
 **\*\*\*What questions do these sketches raise? What do you need to physically prototype to answer them?\*\*\***
 
 **\*\*\*Pick one design to prototype and explain why.\*\*\***
@@ -506,6 +512,8 @@ The deliverables for this lab are, writings, sketches, photos, and videos that s
 * https://drive.google.com/file/d/1St5-TlgQ8rzky6Ry7ZNBIRuPWG28qgEo/view?usp=sharing
 
 * "Acts like": shows how a person would interact with the device.
+
+* The idea behind this device is to encourage people to have better table manners. When they are eating and their elbows come to rest on the table (a universally agreed upon sign of poor table manners), the servo motor is triggered which causes the proper British aristocrat to shake his head disapprovingly. 
 
 * https://drive.google.com/file/d/1ZDEpkmeQiOcSpeW4tHB2vjy6VRmPQCPH/view?usp=sharing
 
