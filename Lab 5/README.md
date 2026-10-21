@@ -2,6 +2,8 @@
 
 **NAMES OF COLLABORATORS HERE**
 
+Alexa Yang, Elliott Kalt
+
 For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture. 
 Your **observant device** could, for example, count items, find objects, recognize an event or continuously monitor a room.
 
@@ -107,6 +109,8 @@ pi@raspberrypi:~ $ ollama list
 | `qwen3:0.6b` | ~0.5 GB | text only, smaller and faster (~16 tokens/s on a Pi 5) |
 
 \*\*\***Include a screenshot of `ollama list` showing your models, and the `bus.jpg` result and your own photo with their boxes.**\*\*\*
+
+<img width="516" height="69" alt="Screenshot 2026-10-21 at 6 55 57 PM" src="https://github.com/user-attachments/assets/a9b3e6dd-eba9-4d72-ba72-cf5cbe4b22d3" />
 
 
 ## Part B. 
