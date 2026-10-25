@@ -1,7 +1,7 @@
 description: Ultralytics YOLO26n model trained on /home/lq/codes/ultralytics/ultralytics/cfg/datasets/coco.yaml
 author: Ultralytics
-date: '2026-10-21T18:41:52.097471-04:00'
-version: 8.4.183
+date: '2026-10-24T21:35:57.962334-04:00'
+version: 8.4.188
 license: AGPL-3.0 License (https://ultralytics.com/license)
 docs: https://docs.ultralytics.com
 stride: 32
