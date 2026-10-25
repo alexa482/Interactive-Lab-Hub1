@@ -53,21 +53,26 @@ def report(folder, status):
     if not rows:
         print('No color samples collected; no histogram generated.', flush=True)
         return
+    included = list(range(2, len(COLORS)))  # Exclude black and gray; retain white.
+    palette = [COLORS[j] for j in included]
     # At most 120 time bins, so overnight charts stay legible.
     chunk = max(1, math.ceil(len(rows) / 120))
     groups = [rows[i:i + chunk] for i in range(0, len(rows), chunk)]
     svg = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450">',
            '<rect width="1000" height="450" fill="white"/>',
            '<g font-family="sans-serif" font-size="14" fill="#222">',
-           '<text x="65" y="24">Window colors — pixel share over time</text>']
+           '<text x="65" y="24">Window colors — share excluding black and gray</text>']
     for pct in [0, 25, 50, 75, 100]:
         y = 350 - pct * 3
         svg.append(f'<text x="15" y="{y+5}">{pct}%</text>')
     for i, group in enumerate(groups):
-        counts = [sum(row['counts'][j] for row in group) for j in range(len(COLORS))]
+        counts = [sum(row['counts'][j] for row in group) for j in included]
         total, bottom = sum(counts), 350.0
         width = 900 / len(groups)
-        for (name, color), count in zip(COLORS, counts):
+        if total == 0:
+            svg.append(f'<text x="{65+i*width+width/2:.2f}" y="200" text-anchor="middle">×<title>No retained pixels in this time bin</title></text>')
+            continue
+        for (name, color), count in zip(palette, counts):
             height = 300 * count / total
             bottom -= height
             svg.append(f'<rect x="{65+i*width:.2f}" y="{bottom:.2f}" width="{width:.2f}" height="{height:.2f}" fill="{color}"><title>{name}: {100*count/total:.1f}% at {group[0]["elapsed_s"]:.1f}s</title></rect>')
@@ -76,14 +81,18 @@ def report(folder, status):
                 '<text x="370" y="410">Seconds since sensing started</text></g></svg>'])
     chart = ''.join(svg)
     (folder / 'histogram.svg').write_text(chart, encoding='utf-8')
-    totals = [sum(row['counts'][j] for row in rows) for j in range(len(COLORS))]
+    totals = [sum(row['counts'][j] for row in rows) for j in included]
     total = sum(totals)
-    legend = ''.join(f'<tr><td><span style="display:inline-block;width:20px;height:16px;background:{color}"></span> {name}</td><td>{100*n/total:.2f}%</td></tr>' for (name, color), n in zip(COLORS, totals))
+    legend = ''.join(f'<tr><td><span style="display:inline-block;width:20px;height:16px;background:{color}"></span> {name}</td><td>{100*n/total:.2f}%</td></tr>' for (name, color), n in zip(palette, totals)) if total else ''
+    if total == 0:
+        legend = '<tr><td>No pixels remain after excluding black and gray.</td></tr>'
+    excluded = sum(sum(row['counts'][:2]) for row in rows)
+    coverage = 100 * total / (total + excluded) if total + excluded else 0
     (folder / 'report.html').write_text(f'''<!doctype html><meta charset="utf-8"><title>Window color report</title>
 <style>body{{font:16px system-ui;max-width:1100px;margin:40px auto;padding:20px;background:#fafafa}}td{{padding:5px 20px}}svg{{width:100%}}</style>
 <h1>Window color report</h1><p>{len(rows)} samples · {html.escape(status)} · Started {html.escape(rows[0]['t'])}</p>
 {chart}<h2>Overall color distribution</h2><table>{legend}</table>
-<p>Each stacked bar represents the pixel distribution in a time bin. All pixels are included, grouped into 11 broad color categories. Dark pixels count as black; these are camera-observed colors, affected by lighting, reflections, exposure, and white balance.</p>''', encoding='utf-8')
+<p>Each stacked bar represents the pixel distribution in a time bin. Black and gray are excluded; remaining colors (including white) are normalized to 100%. Retained pixels: {coverage:.2f}% of all sampled pixels. A × marks a time bin with no retained pixels. Raw logs retain all 11 categories; these are camera-observed colors, affected by lighting, reflections, exposure, and white balance.</p>''', encoding='utf-8')
     print(f'Report: {(folder / "report.html").resolve()}', flush=True)
 
 
