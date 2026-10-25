@@ -1,0 +1,17 @@
+{
+  "report_only": null,
+  "duration": 60,
+  "interval": 2,
+  "settle": 5,
+  "hold": 1,
+  "camera": 0,
+  "preview": true,
+  "start_now": false,
+  "roi": [
+    0,
+    0,
+    1,
+    1
+  ],
+  "output": "color_runs"
+}
