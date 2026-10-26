@@ -295,7 +295,13 @@ As you develop your Feast Automata concept, consider where the sensor and actuat
 
 **\*\*\*What questions do these sketches raise? What do you need to physically prototype to answer them?\*\*\***
 
+Many of these ideas involved some kind of stand to support the hanging or upright orientation of a sensor. Have to figure out how to build such a stand, ideally out of a wooden or sturdy material. Also have to use a long enough wire such that it can snake around the stand and reach the Pi.
+
+Also should consider proximity factors. Food can be messy, probably isn't a great idea to have it too close to the sensors and actuators. But also needs to all be in close enough proximity that the device functions. 
+
 **\*\*\*Pick one design to prototype and explain why.\*\*\***
+
+I'm going to build the British Aristocrat that scolds you when you place your elbow on the table, because it has the most social seeming interaction to me. It is also one of the easier ones to build, given there's no stand required. 
 
 Build a cardboard or other low-fidelity physical prototype of your design.
 
