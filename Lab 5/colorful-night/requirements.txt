@@ -1,0 +1,8 @@
+numpy
+Pillow
+opencv-python-headless
+sounddevice
+sherpa-onnx
+faster-whisper
+Adafruit-Blinka
+adafruit-circuitpython-rgb-display
