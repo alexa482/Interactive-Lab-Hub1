@@ -20,3 +20,7 @@ nohup.out
 
 # macOS
 .DS_Store
+
+colorful-night/models/
+colorful-night/.running.lock
+colorful-night/color_runs/
