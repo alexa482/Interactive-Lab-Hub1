@@ -327,15 +327,25 @@ Use storyboards and/or [Verplank diagrams](https://ccrma.stanford.edu/courses/25
 
 \*\*\***Insert ideas, sketches, Verplank diagrams and storyboards for your night-time interaction here.**\*\*\*
 
+<img width="4032" height="3024" alt="IMG_4487" src="https://github.com/user-attachments/assets/afc714b3-bc68-4854-a226-52727d9f731c" />
+
+
 ## Prep for Part 2
 
 1. Look at and give feedback on the Part F storyboards.
    **Put the feedback for your ideas here.**
-2. [Update your Lab Hub](prep.md#get-the-latest-content) to get the latest content for Part 2.
-3. Decide where the device will spend the night and who else lives there. Get their OK before the first run.
-4. Revise your storyboard with the feedback and with what you learned in Part E about where the pipeline breaks.
+
+   Summary of feedback: it might be a bit cumbersome to show the camera a quiet coyote, then have to switch it around to view outside the window. Should use a different way of triggering the sensing, so the user can just trigger, then lay down to go to sleep.
+
+   Also, should have the final resulting histogram displayed on the pi. It is unnecessary to make the user stand up and go to the laptop to view. 
+3. [Update your Lab Hub](prep.md#get-the-latest-content) to get the latest content for Part 2.
+4. Decide where the device will spend the night and who else lives there. Get their OK before the first run.
+5. Revise your storyboard with the feedback and with what you learned in Part E about where the pipeline breaks.
 
 \*\*\***Post your revised storyboard here.**\*\*\*
+
+<img width="3024" height="4032" alt="IMG_4488" src="https://github.com/user-attachments/assets/1b30ec44-9583-4977-9412-e1c22952aae2" />
+
 
 ## Part G. 
 ### Design the interaction before
@@ -343,6 +353,8 @@ Use storyboards and/or [Verplank diagrams](https://ccrma.stanford.edu/courses/25
 The hand-off: the person tells the device what to watch tonight, and the device acknowledges it. Keep it to a thirty-second ritual. A button or a touch (Lab 4), a spoken sentence (Lab 3), a wave or a Quiet Coyote at the camera (Part C). The acknowledgement can be a line on the display, a tone, or an LED that dims rather than lights up. At its simplest, the hand-off just sets the question that the morning will answer.
 
 \*\*\***Describe the interaction before.**\*\*\*
+
+A user can just let the camera rest facing outside the window. Right before they go to bed, they say the trigger phrase, "Have a colorful night!". This causes the camera to start sensing and recording data, specifically of the various colors it picks up on in the night. 
 
 ## Part H. 
 ### Incorporate the observant system
@@ -357,6 +369,13 @@ The Part E pipeline becomes the night shift. `overnight.py` runs your `interpret
 Fake a night first: run it for thirty seconds while you walk around, stop it, and run `morning.py` from Part I. When that looks right, run a real night. If your storyboard needs a sensor rather than the camera, swap in the Lab 4 example code and log its reading the same way.
 
 \*\*\***Screenshots or videos of the running system.**\*\*\*
+
+<img width="3024" height="4032" alt="IMG_4485" src="https://github.com/user-attachments/assets/8d2514a5-c60d-42d1-a60a-43e2d5a34da5" />
+
+<img width="3024" height="4032" alt="IMG_4486" src="https://github.com/user-attachments/assets/48becaac-81b6-4c55-b475-00b98f356b61" />
+
+<img width="570" height="94" alt="image" src="https://github.com/user-attachments/assets/743e449d-8e39-479e-956d-37a506479047" />
+
 
 ## Part I. 
 ### Design the interaction after
@@ -378,6 +397,18 @@ Document all the prototypes and iterations you have designed and worked on. The 
 * "Acts like": how a person hands the night over and what they get back.
 
 \*\*\***Include a short video of the whole system**\*\*\*
+
+This project takes advantage of a window overlooking the Manhattan skyline and directly facing the World Trade Center. With so many buildings, there are loads of changing colors at any given moment. This device tracks all the colors, and presents their frequency throughout the night. 
+
+Overall flow:
+
+1. User says inciting phrase, "Have a colorful night!"
+   
+2. Pi starts sensing out the window for all the colors that show up during the night
+   
+3. Pi creates a histogram to show the distribution of colors during the night. Omits black and gray, since those would largely dominate the histogram and it wouldn't necessarily be interesting data.
+
+4. The user can then use this information to inspire their outfits, their mood, the vibe of the day etc. Colors can have a lot of uses. 
 
 As always, make sure you document contributions and ideas from others (and AI) explicitly in your writeup.
 
