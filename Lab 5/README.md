@@ -6,6 +6,8 @@
 
 **Project name:**
 
+Nighttime Palette
+
 <details>
 	<summary><strong>Instructions for Students (Click to Expand)</strong></summary>
   
@@ -397,6 +399,8 @@ Document all the prototypes and iterations you have designed and worked on. The 
 * "Acts like": how a person hands the night over and what they get back.
 
 \*\*\***Include a short video of the whole system**\*\*\*
+
+https://drive.google.com/file/d/1kwoif6kovCcjsd2BmYTXV9_dC1LEafwo/view?usp=drive_link
 
 This project takes advantage of a window overlooking the Manhattan skyline and directly facing the World Trade Center. With so many buildings, there are loads of changing colors at any given moment. This device tracks all the colors, and presents their frequency throughout the night. 
 
