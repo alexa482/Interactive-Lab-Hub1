@@ -402,6 +402,9 @@ Document all the prototypes and iterations you have designed and worked on. The 
 
 https://drive.google.com/file/d/1kwoif6kovCcjsd2BmYTXV9_dC1LEafwo/view?usp=drive_link
 
+<img width="3023" height="2709" alt="IMG_4494" src="https://github.com/user-attachments/assets/effe286a-0e9a-4c5c-b231-b8c9453b2683" />
+
+
 This project takes advantage of a window overlooking the Manhattan skyline and directly facing the World Trade Center. With so many buildings, there are loads of changing colors at any given moment. This device tracks all the colors, and presents their frequency throughout the night. 
 
 Overall flow:
