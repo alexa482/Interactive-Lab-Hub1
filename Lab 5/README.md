@@ -1,8 +1,8 @@
 # Observant Systems: Overnight Sensation
 
-**Team:**
+**Team:** group 21  
 
-**Members:** Full Name (netid, github-handle), ...
+**Members:** Jovian Wang (jlw457, jovianw), Alexa Yang (ay482, alexa482), Elliot Kalt (esk226, elkalt)
 
 **Project name:**
 
@@ -18,8 +18,6 @@
 	This helps ensure your README.md is clear, professional, and uniquely yours!
 </details>
 
-
-Alexa Yang, Elliott Kalt
 
 For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture. 
 Your **observant device** could, for example, count items, find objects, recognize an event or continuously monitor a room.
@@ -138,7 +136,7 @@ pi@raspberrypi:~ $ ollama list
 
 \*\*\***Include a screenshot of `ollama list` showing your models.**\*\*\*
 
-<img width="516" height="69" alt="Screenshot 2026-10-21 at 6 55 57 PM" src="https://github.com/user-attachments/assets/a9b3e6dd-eba9-4d72-ba72-cf5cbe4b22d3" />
+<img width="449" height="60" alt="Screenshot 2026-10-25 at 9 14 20 PM" src="https://github.com/user-attachments/assets/dcb9a3df-324e-4ce2-a13c-fa3ad8c33363" />
 
 
 ## Part B. 
@@ -165,6 +163,18 @@ Then press q to quit and run it again with a flag. Each one changes a single thi
 
 \*\*\***Include a short video or screenshots of your experiments with the person detection. Write down three situations where it did not see you, or saw a person who was not there, and what you think the cause was.**\*\*\*
 
+<img width="419" height="315" alt="Screenshot 2026-10-25 at 9 44 16 PM" src="https://github.com/user-attachments/assets/ddb102c8-138d-4e00-a984-32b14de1fe8c" />
+<img width="419" height="315" alt="Screenshot 2026-10-25 at 9 43 33 PM" src="https://github.com/user-attachments/assets/0436cf55-b82e-4d3c-8464-86df8660c1f6" />
+<img width="419" height="315" alt="Screenshot 2026-10-25 at 9 43 02 PM" src="https://github.com/user-attachments/assets/54e22c13-365f-44cb-97af-7fb334283933" />
+<img width="419" height="315" alt="Screenshot 2026-10-25 at 9 42 36 PM" src="https://github.com/user-attachments/assets/7f4dbbc7-ddc4-4c38-80bf-9afe3eacf8da" />
+<img width="419" height="315" alt="Screenshot 2026-10-25 at 9 41 59 PM" src="https://github.com/user-attachments/assets/109e87e9-cfdf-4d72-9237-9bf28a57890b" />
+<img width="419" height="315" alt="Screenshot 2026-10-25 at 9 41 21 PM" src="https://github.com/user-attachments/assets/790b4c05-23f8-4654-b7b8-5b669a51c15c" />
+<img width="419" height="315" alt="Screenshot 2026-10-25 at 9 41 14 PM" src="https://github.com/user-attachments/assets/03ca7a64-9482-4059-9ba3-124e0faa1495" />
+
+Surprisingly it was very good at detecting where I was, even if I was facing different directions, in different poses, or partially out of frame. The challenges occurred when it saw other people-like things, such as a person on the phone, when my body is majorly blocked by some object like my laptop, or when the lighting is dark. I believe this is because:
+- It still sees people in the image, even if that person is actually 2d and on a screen
+- It is more unconfident when the person's shape is greatly blocked out by something, and
+- It needs enough lighting to differentiate between pixels of the person and pixels of the background.
 
 
 ## Part C. 
@@ -192,6 +202,10 @@ Try the two main features of this script: 1) pinching for percentage control (th
 Consider how you might use this position based approach to create an interaction, and write how you might use it on either face, hand or body pose tracking.
 
 \*\*\***Include a screenshot or short video of the hand pose demo, and write how you might use face, hand or body pose tracking in your observant system.**\*\*\*
+
+<img width="644" height="322" alt="Screenshot 2026-10-24 at 9 42 28 PM" src="https://github.com/user-attachments/assets/69bda6d0-95d0-4090-aa6a-fd0a05dd6f4f" />
+
+We are currently considering an idea that uses a hand pose to trigger our overnight system. That is, in order to begin the sensing, the user has to complete a specific action or showcase a specific hand pose. We could use a similar idea to end the sensing. The device knows the night is over and the data should be compiled upon seeing the user's action or face again, which indicates they have woken up. 
 
 
 ## Part D. 
@@ -227,7 +241,29 @@ A 0.8B model is slow and sometimes wrong. It will invent events that are not in 
 \*\*\***Ask Qwen three questions to answer. Paste the questions, the answers and how long each took. Try one of them with `qwen3:0.6b` and compare.**\*\*\*
 
 <details>
-  Q&A here
+<summary>Q&A</summary>
+
+**Q1: Tell me a bit about the history of Roosevelt Island.** (qwen3.5:0.8b, 30.8 s, mostly loading the model)
+> Roosevelt Island was originally built as a military base during World War II, where it served as a staging area for American troops. Following the war, the island was repurposed by the United States government to house the nation's first presidential library and museum, which opened in 1946.
+
+0 out of 2 facts true lol.
+
+**Q2: Why did Cornell Tech move from Roosevelt Island to Brooklyn in 2020?** (qwen3.5:0.8b, 5.7 s)
+> Cornell Tech moved from Roosevelt Island to Brooklyn in 2020 to expand its operations and improve service accessibility for students and staff living on the island.
+
+Funny rick question, it never moved. The model just went along with it.
+
+**Q3 (`--json`): Someone was at the door at 3 am. Is that unusual?** (qwen3.5:0.8b, 4.6 s)
+```
+{ "headline": "Unusual: Someone at 3 AM", "unusual": true }
+```
+Correct, and good format.
+
+**Q1 again with qwen3:0.6b** (13.2 s)
+> Roosevelt Island was established in 1942 as a temporary refuge for the displaced and homeless, offering a safe haven for those in need. It was a symbol of the U.S. government's commitment to aiding the vulnerable, and it remains a significant historical site for the community. Today, it continues to serve as a vital community center, reflecting the enduring legacy of the nation's efforts to support those in need.
+
+Also seems made up, just more wordy. Both models seem bad at facts but fine at narrow yes/no stuff.
+
 </details>
 
 
