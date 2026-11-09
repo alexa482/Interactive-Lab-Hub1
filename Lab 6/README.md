@@ -1,10 +1,11 @@
 # Distributed Interaction
 
-**NAMES OF COLLABORATORS HERE**
+**Team:** Elliott Kalt (esk226), Jovian Wang (jlw457), Alexa Yang (ay482)
 
-For submission, replace this section with your documentation!
+Our Part C project, **Spacecrew**, has its own write-up: [spaceteam/README.md](spaceteam/README.md).
 
----
+<details>
+<summary>Prep and overview (lab instructions)</summary>
 
 ## Prep
 
@@ -17,12 +18,17 @@ Build interactive systems where **multiple devices communicate over a network** 
 
 **Parts:**
 - A: Learn MQTT messaging
-- B: Try collaborative pixel grid demo  
+- B: Try collaborative pixel grid demo
 - C: Build your own distributed system
+
+</details>
 
 ---
 
 ## Part A: MQTT Messaging
+
+<details>
+<summary>Lab instructions</summary>
 
 MQTT = lightweight messaging for IoT. Publish/subscribe model with central broker.
 
@@ -56,15 +62,26 @@ mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'H
 
 **🔧 Debug Tool:** View all MQTT messages in real-time at `http://farlab.infosci.cornell.edu:5001`
 
+MQTT agrees on almost nothing in advance: you invent the topics and what the messages mean. Smart-home standards like Matter fix the vocabulary instead (every "light" behaves the same). Keep this trade-off in mind when you design your topics in Part C.
+
+</details>
+
 ![MQTT Explorer showing messages](imgs/MQTT-explorer.png)
 
-**💡 Brainstorm 5 ideas for messaging between devices**
+**💡 5 ideas for messaging between devices**
 
-MQTT agrees on almost nothing in advance: you invent the topics and what the messages mean. Smart-home standards like Matter fix the vocabulary instead (every "light" behaves the same). Keep this trade-off in mind when you design your topics in Part C.
+1. A doorbell Pi publishes a ring and every screen in the house flashes who's at the door.
+2. Plant sensors publish soil moisture and one Pi by the sink shows which plant needs water.
+3. A "quiet hours" button publishes a topic that mutes every speaker on the network.
+4. Each roommate's Pi publishes whether they're home so the kitchen screen shows who to cook for.
+5. A shouting game where each Pi only sees someone else's task (what we built for Part C).
 
 ---
 
 ## Part B: Collaborative Pixel Grid
+
+<details>
+<summary>Lab instructions and setup</summary>
 
 Each Pi = one pixel, controlled by RGB sensor, displayed in real-time grid.
 
@@ -76,11 +93,10 @@ Each Pi = one pixel, controlled by RGB sensor, displayed in real-time grid.
 
 #### Light/Proximity/Gesture sensor (APDS-9960)
 We use this sensor [Adafruit APDS-9960](https://www.adafruit.com/product/3595) for this exmaple to detect light (also RGB)
- 
+
 <img src="https://cdn-shop.adafruit.com/970x728/3595-06.jpg" width=200>
 
 Connect it to your pi with Qwiic connector
-
 
 <img src="imgs/IMG_0270.jpg" height="200" />
 We need to use the screen to display the color detection, so we need to stop the running piscreen.service to make your screen available again
@@ -95,7 +111,7 @@ if you want to restart the screen service
 # start the screen service
 sudo systemctl start piscreen.service
 ```
- 
+
 2. **Server** (one person on laptop):
 ```bash
 cd "Lab 6"
@@ -125,71 +141,28 @@ Hold colored objects near sensor to change your pixel!
 
 ![Pixel grid with two devices](imgs/two-devices-grid.png)
 
-**📸 Include: Screenshot of grid + photo of your Pi setup**
+</details>
+
+**📸 Screenshot of grid + photo of our Pi setup**
+
+![](imgs/image.jpg)
+![](imgs/screenshot.png)
 
 ---
 
-## Part C: Make Your Own
+## Part C: Spacecrew
 
-**Requirements:**
-- 3+ people, 3+ Pis
-- Each Pi contributes sensor input via MQTT
-- Meaningful or fun interaction
+A Spaceteam-style shouting game for 2+ Pis. Each screen shows an order for
+someone else's sensors; you shout it while listening for your own. Full
+write-up (description, architecture, build, user testing, reflection):
+**[spaceteam/README.md](spaceteam/README.md)**.
 
-**Ideas:**
-
-**Sensor Fortune Teller**
-- Each Pi sends 0-255 from different sensor
-- Server generates fortunes from combined values
-
-**Frankenstories**
-- Sensor events → story elements (not text!)
-- Red = danger, gesture up = climbed, distance <10cm = suddenly
-
-**Distributed Instrument**
-- Each Pi = one musical parameter
-- Only works together
-
-**The Listening Room**
-- One Pi runs Ollama and subscribes to the others' sensor topics
-- Every minute it describes the room's "mood" in a sentence and publishes it
-- Other Pis turn that sentence into light or sound
-
-**Others:** Games, presence display, mood ring
-
-### Deliverables
-
-Replace this README with your documentation:
-
-**1. Project Description**
-- What does it do? Why interesting? User experience?
-
-**2. Architecture Diagram**
-- Hardware, connections, data flow
-- Label input/computation/output
-
-**3. Build Documentation**
-- Photos of each Pi + sensors
-- MQTT topics used
-- Code snippets with explanations
-
-**4. User Testing**
-- **Test with 2+ people NOT on your team**
-- Photos/video of use
-- What did they think before trying?
-- What surprised them?
-- What would they change?
-
-**5. Reflection**
-- What worked well?
-- Challenges with distributed interaction?
-- How did sensor events work?
-- What would you improve?
-- Where did computation happen in your system, and why there? (If you used a language model: did it run on every event, or only at setup?)
+[![Click to download video](imgs/video-preview.jpg)](imgs/video-h264.mp4)
 
 ---
 
-## Optional Stretch: Self-Describing Devices
+<details>
+<summary>Optional stretch: self-describing devices (not attempted)</summary>
 
 *For teams that finish early or want to try something harder. Not required.*
 
@@ -243,7 +216,10 @@ Then wire your real sensors and actuators to the topics in your descriptions (th
 - The rules the model produced, including at least one it got wrong
 - **How would a user notice that their devices had agreed on the wrong rule? How would they fix it?**
 
----
+</details>
+
+<details>
+<summary>Code files, debugging tools and troubleshooting (lab instructions)</summary>
 
 ## Code Files
 
@@ -262,8 +238,6 @@ Then wire your real sensors and actuators to the topics in your descriptions (th
 - `templates/controller.html` - Color picker
 - `templates/mqtt_viewer.html` - Message viewer
 
----
-
 ## Debugging Tools
 
 **MQTT Message Viewer:** `http://farlab.infosci.cornell.edu:5001`
@@ -277,8 +251,6 @@ Then wire your real sensors and actuators to the topics in your descriptions (th
 mosquitto_sub -h farlab.infosci.cornell.edu -p 1883 -t "IDD/#" -u idd -P "device@theFarm"
 ```
 
----
-
 ## Troubleshooting
 
 **MQTT:** Broker `farlab.infosci.cornell.edu:1883`, user `idd`, pass `device@theFarm`
@@ -289,21 +261,18 @@ mosquitto_sub -h farlab.infosci.cornell.edu -p 1883 -t "IDD/#" -u idd -P "device
 
 **Pi venv:** Make sure to activate: `source .venv/bin/activate`
 
+</details>
 
----
+<details>
+<summary>Submission checklist</summary>
 
-## Submission Checklist
+- [x] Prep/instructions collapsed above
+- [x] Project documentation: [spaceteam/README.md](spaceteam/README.md)
+- [x] Photos/videos/diagrams
+- [x] User testing with non-team members (see the project README)
+- [x] Reflection on learnings
+- [x] Team names at top
 
-Before submitting:
-- [ ] Delete prep/instructions above
-- [ ] Add YOUR project documentation
-- [ ] Include photos/videos/diagrams  
-- [ ] Document user testing with non-team members
-- [ ] Add reflection on learnings
-- [ ] List team names at top
-
-**Your README = story of what YOU built!**
-
----
+</details>
 
 Resources: [MQTT Guide](https://www.hivemq.com/mqtt-essentials/) | [Paho Python](https://www.eclipse.org/paho/index.php?page=clients/python/docs/index.php) | [Flask-SocketIO](https://flask-socketio.readthedocs.io/)
